@@ -171,11 +171,11 @@ public extension View {
         self.modifier(CMOneBorderBoxModifier(edge: edge, color: color, width: width))
     }
     /// Make background CMOneBorderBox with custom edge set and color, width, cornerRadius
-    func CMOneBorderBox(edge: Edge.Set, color: Color, width: CGFloat, cornerRaduis: CGFloat) -> some View {
-        self.modifier(CMOneBorderBoxModifier(edge: edge, color: color, width: width, cornerRadius: cornerRaduis))
+    func CMOneBorderBox(edge: Edge.Set, color: Color, width: CGFloat, cornerRadius: CGFloat) -> some View {
+        self.modifier(CMOneBorderBoxModifier(edge: edge, color: color, width: width, cornerRadius: cornerRadius))
     }
     /// Make background CMOneBorderBox with custom edge set and color, width, cornerRadius
-    func CMOneBorderBox(edge: Edge.Set, color: Color, width: CGFloat, cornerRaduis: CGFloat, topRight: CGFloat, topLeft: CGFloat, bottomRight: CGFloat, bottomLeft: CGFloat) -> some View {
+    func CMOneBorderBox(edge: Edge.Set, color: Color, width: CGFloat, cornerRadius: CGFloat, topRight: CGFloat, topLeft: CGFloat, bottomRight: CGFloat, bottomLeft: CGFloat) -> some View {
         self.modifier(CMOneBorderBoxModifier(edge: edge, width: width, color: color, topLeft: topLeft, topRight: topRight, bottomLeft: bottomLeft, bottomRight: bottomRight))
     }
 }
