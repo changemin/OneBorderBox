@@ -33,34 +33,42 @@ public struct CMOneBorderBox: View {
                 path.addArc(center: CGPoint(x: topLeft, y: topLeft), radius: topLeft, startAngle: Angle(degrees: 180), endAngle: Angle(degrees: 270), clockwise: false)
             }
             .overlay(
-                getForegroundSquare(edge: edge)
+                getForegroundSquare(edge: edge, topLeft: topLeft, topRight: topRight, bottomLeft: bottomLeft, bottomRight: bottomRight)
             )
             .foregroundColor(accentColor)
-            .shadow(color: Color.black.opacity(0.03), radius: 5, x: 0, y: 0)
+            .shadow(color: Color.black.opacity(0.03), radius: 10, x: 0, y: 0)
         }
     }
     
-    public func getForegroundSquare(edge: Edge.Set) -> some View {
-        var topRight: CGFloat = 0
-        var topLeft: CGFloat = 0
-        var bottomRight: CGFloat = 0
-        var bottomLeft: CGFloat = 0
+    public func getForegroundSquare(edge: Edge.Set, topLeft: CGFloat, topRight: CGFloat, bottomLeft: CGFloat, bottomRight: CGFloat) -> some View {
+        var topRight: CGFloat = topRight
+        var topLeft: CGFloat = topLeft
+        var bottomRight: CGFloat = bottomRight
+        var bottomLeft: CGFloat = bottomLeft
         
         if(edge == [.leading]) {
             topRight -= 2
+            topLeft = 0
             bottomRight -= 2
+            bottomLeft = 0
         }
         else if(edge == [.top]) {
+            topRight = 0
+            topLeft = 0
             bottomRight -= 2
             bottomLeft -= 2
         }
         else if(edge == [.trailing]) {
+            topRight = 0
             topLeft -= 2
+            bottomRight = 0
             bottomLeft -= 2
         }
         else if(edge == [.bottom]) {
             topRight -= 2
             topLeft -= 2
+            bottomRight = 0
+            bottomLeft = 0
         }
         
         return RoundSquare(topLeft: topLeft, topRight: topRight, bottomLeft: bottomLeft, bottomRight: bottomRight).fill(Color(UIColor.secondarySystemGroupedBackground)).padding(edge, width)
@@ -152,23 +160,23 @@ public extension View {
     }
     /// Make background CMOneBorderBox with custom color
     func CMOneBorderBox(color: Color) -> some View {
-        self.modifier(CMOneBorderBoxModifier())
+        self.modifier(CMOneBorderBoxModifier(color: color))
     }
     /// Make background CMOneBorderBox with custom edge set and color
     func CMOneBorderBox(edge: Edge.Set, color: Color) -> some View {
-        self.modifier(CMOneBorderBoxModifier())
+        self.modifier(CMOneBorderBoxModifier(edge: edge, color: color))
     }
     /// Make background CMOneBorderBox with custom edge set and color, width
     func CMOneBorderBox(edge: Edge.Set, color: Color, width: CGFloat) -> some View {
-        self.modifier(CMOneBorderBoxModifier())
+        self.modifier(CMOneBorderBoxModifier(edge: edge, color: color, width: width))
     }
     /// Make background CMOneBorderBox with custom edge set and color, width, cornerRadius
     func CMOneBorderBox(edge: Edge.Set, color: Color, width: CGFloat, cornerRaduis: CGFloat) -> some View {
-        self.modifier(CMOneBorderBoxModifier())
+        self.modifier(CMOneBorderBoxModifier(edge: edge, color: color, width: width, cornerRadius: cornerRaduis))
     }
     /// Make background CMOneBorderBox with custom edge set and color, width, cornerRadius
     func CMOneBorderBox(edge: Edge.Set, color: Color, width: CGFloat, cornerRaduis: CGFloat, topRight: CGFloat, topLeft: CGFloat, bottomRight: CGFloat, bottomLeft: CGFloat) -> some View {
-        self.modifier(CMOneBorderBoxModifier())
+        self.modifier(CMOneBorderBoxModifier(edge: edge, width: width, color: color, topLeft: topLeft, topRight: topRight, bottomLeft: bottomLeft, bottomRight: bottomRight))
     }
 }
 
