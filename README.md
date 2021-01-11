@@ -2,7 +2,7 @@
  <img width=500px  src="imgs/main.png" alt="Project logo"></a>
 </p>
 
-<h3 align="center">😜 CMBorderBox 😜</h3>
+<h3 align="center">😜 CMOneBorderBox 😜</h3>
 
 <div align="center">
 
