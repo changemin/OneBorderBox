@@ -1,5 +1,6 @@
 import SwiftUI
 
+/// One Side Bordered Box
 public struct CMOneBorderBox: View {
     var edge: Edge.Set = [.leading]
     var accentColor: Color = Color(.sRGB, red: 50/255, green: 200/255, blue: 165/255)
@@ -145,21 +146,27 @@ struct RoundSquare: Shape {
 }
 
 public extension View {
+    /// Make background CMOneBorderBox.
     func CMOneBorderBox() -> some View {
         self.modifier(CMOneBorderBoxModifier())
     }
+    /// Make background CMOneBorderBox with custom color
     func CMOneBorderBox(color: Color) -> some View {
         self.modifier(CMOneBorderBoxModifier())
     }
+    /// Make background CMOneBorderBox with custom edge set and color
     func CMOneBorderBox(edge: Edge.Set, color: Color) -> some View {
         self.modifier(CMOneBorderBoxModifier())
     }
+    /// Make background CMOneBorderBox with custom edge set and color, width
     func CMOneBorderBox(edge: Edge.Set, color: Color, width: CGFloat) -> some View {
         self.modifier(CMOneBorderBoxModifier())
     }
+    /// Make background CMOneBorderBox with custom edge set and color, width, cornerRadius
     func CMOneBorderBox(edge: Edge.Set, color: Color, width: CGFloat, cornerRaduis: CGFloat) -> some View {
         self.modifier(CMOneBorderBoxModifier())
     }
+    /// Make background CMOneBorderBox with custom edge set and color, width, cornerRadius
     func CMOneBorderBox(edge: Edge.Set, color: Color, width: CGFloat, cornerRaduis: CGFloat, topRight: CGFloat, topLeft: CGFloat, bottomRight: CGFloat, bottomLeft: CGFloat) -> some View {
         self.modifier(CMOneBorderBoxModifier())
     }
@@ -179,6 +186,7 @@ public struct CMOneBorderBoxModifier: ViewModifier {
             .padding()
             .background(CMOneBorderBox(edge: edge, width: width, color: accentColor, topLeft: topLeft, topRight: topRight, bottomLeft: bottomLeft, bottomRight: bottomRight))
     }
+    
     public init() {
         
     }
