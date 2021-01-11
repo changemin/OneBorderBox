@@ -69,14 +69,29 @@ public struct CMOneBorderBox: View {
         
     }
     
-    public init(edge: Edge.Set, width: CGFloat, color: Color, cornerRadius: CGFloat) {
-        self.edge = edge
-        self.width = width
+    public init(color: Color) {
         self.accentColor = color
-        self.topLeft = cornerRadius
+    }
+    
+    public init(edge: Edge.Set, color: Color) {
+        self.edge = edge
+        self.accentColor = color
+    }
+    
+    public init(edge: Edge.Set, color: Color, width: CGFloat) {
+        self.edge = edge
+        self.accentColor = color
+        self.width = width
+    }
+    
+    public init(edge: Edge.Set, color: Color, width: CGFloat, cornerRadius: CGFloat) {
+        self.edge = edge
+        self.accentColor = color
+        self.width = width
         self.topRight = cornerRadius
-        self.bottomLeft = cornerRadius
+        self.topLeft = cornerRadius
         self.bottomRight = cornerRadius
+        self.bottomLeft = cornerRadius
     }
     
     public init(edge: Edge.Set, width: CGFloat, color: Color, topLeft: CGFloat, topRight: CGFloat, bottomLeft: CGFloat, bottomRight: CGFloat) {
@@ -126,5 +141,80 @@ struct RoundSquare: Shape {
                     startAngle: Angle(degrees: 180), endAngle: Angle(degrees: 270), clockwise: false)
 
         return path
+    }
+}
+
+public extension View {
+    func CMOneBorderBox() -> some View {
+        self.modifier(CMOneBorderBoxModifier())
+    }
+    func CMOneBorderBox(color: Color) -> some View {
+        self.modifier(CMOneBorderBoxModifier())
+    }
+    func CMOneBorderBox(edge: Edge.Set, color: Color) -> some View {
+        self.modifier(CMOneBorderBoxModifier())
+    }
+    func CMOneBorderBox(edge: Edge.Set, color: Color, width: CGFloat) -> some View {
+        self.modifier(CMOneBorderBoxModifier())
+    }
+    func CMOneBorderBox(edge: Edge.Set, color: Color, width: CGFloat, cornerRaduis: CGFloat) -> some View {
+        self.modifier(CMOneBorderBoxModifier())
+    }
+    func CMOneBorderBox(edge: Edge.Set, color: Color, width: CGFloat, cornerRaduis: CGFloat, topRight: CGFloat, topLeft: CGFloat, bottomRight: CGFloat, bottomLeft: CGFloat) -> some View {
+        self.modifier(CMOneBorderBoxModifier())
+    }
+}
+
+public struct CMOneBorderBoxModifier: ViewModifier {
+    var edge: Edge.Set = [.leading]
+    var accentColor: Color = Color(.sRGB, red: 50/255, green: 200/255, blue: 165/255)
+    var width: CGFloat = 5
+    var topLeft: CGFloat = 5
+    var topRight: CGFloat = 5
+    var bottomLeft: CGFloat = 5
+    var bottomRight: CGFloat = 5
+    
+    public func body(content: Content) -> some View {
+        return content
+            .padding()
+            .background(CMOneBorderBox(edge: edge, width: width, color: accentColor, topLeft: topLeft, topRight: topRight, bottomLeft: bottomLeft, bottomRight: bottomRight))
+    }
+    public init() {
+        
+    }
+    
+    public init(color: Color) {
+        self.accentColor = color
+    }
+    
+    public init(edge: Edge.Set, color: Color) {
+        self.edge = edge
+        self.accentColor = color
+    }
+    
+    public init(edge: Edge.Set, color: Color, width: CGFloat) {
+        self.edge = edge
+        self.accentColor = color
+        self.width = width
+    }
+    
+    public init(edge: Edge.Set, color: Color, width: CGFloat, cornerRadius: CGFloat) {
+        self.edge = edge
+        self.accentColor = color
+        self.width = width
+        self.topRight = cornerRadius
+        self.topLeft = cornerRadius
+        self.bottomRight = cornerRadius
+        self.bottomLeft = cornerRadius
+    }
+    
+    public init(edge: Edge.Set, width: CGFloat, color: Color, topLeft: CGFloat, topRight: CGFloat, bottomLeft: CGFloat, bottomRight: CGFloat) {
+        self.edge = edge
+        self.width = width
+        self.accentColor = color
+        self.topLeft = topLeft
+        self.topRight = topRight
+        self.bottomLeft = bottomLeft
+        self.bottomRight = bottomRight
     }
 }
