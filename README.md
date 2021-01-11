@@ -14,6 +14,11 @@
 
 ---
 
+<p align="center"> 
+    Simple and well-designed Box View Modifier for SwiftUI
+    <br> 
+</p>
+
 ## 🏁 Getting Started
 
 ### Requirements
