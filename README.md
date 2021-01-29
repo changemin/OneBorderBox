@@ -2,12 +2,12 @@
  <img width=500px  src="imgs/main.png" alt="Project logo"></a>
 </p>
 
-<h3 align="center">😜 CMOneBorderBox 😜</h3>
+<h3 align="center">📏 SwiftUI OneBorderBox 📏</h3>
 
 <div align="center">
 
-![License](https://img.shields.io/github/license/CM-Material/CMOneBorderBox?style=for-the-badge)
-![Release](https://img.shields.io/github/v/release/CM-Material/CMOneBorderBox?style=for-the-badge)
+![License](https://img.shields.io/github/license/Changemin/OneBorderBox?style=for-the-badge)
+![Release](https://img.shields.io/github/v/release/Changemin/OneBorderBox?style=for-the-badge)
 
 
 </div>
@@ -32,14 +32,14 @@
     File ➜ Swift Packages ➜ Add Package Dependancy..
 
 ```Swift
-.package(url: "https://github.com/CM-Material/CMBorderBox", from: "1.0.0")
+.package(url: "https://github.com/Changemin/OneBorderBox", from: "1.1.0")
 ```
 
 ## 🎈Usage
 ```Swift
-CMBorderBox(edge: Edge.Set, color: Color, width: CGFloat, cornerRadius: CGFloat)
+OneBorderBox(edge: Edge.Set, color: Color, width: CGFloat, cornerRadius: CGFloat)
 // or
-someView.CMBorderBox()
+someView.OneBorderBox()
 ```
 * `edge` : where to put the bordr
 * `color` : accent color of the border
@@ -49,11 +49,11 @@ someView.CMBorderBox()
 ## Example
 #### 👶 Simple
 ```Swift
-import CMOneBorderBox
+import OneBorderBox
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, World!").CMOneBorderBox()
+        Text("Hello, World!").OneBorderBox()
     }
 }
 ```
@@ -64,11 +64,11 @@ struct ContentView: View {
 
 ### 🎨 Accent Color
 ```Swift
-import CMOneBorderBox
+import OneBorderBox
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, World!").CMOneBorderBox(color: Color.orange)
+        Text("Hello, World!").OneBorderBox(color: Color.orange)
     }
 }
 ```
@@ -79,11 +79,11 @@ struct ContentView: View {
 
 ### 🧰 Custom Usage
 ```Swift
-import CMOneBorderBox
+import OneBorderBox
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, World!").CMOneBorderBox(edge: .top, color: Color.red, width: 5, cornerRadius: 0)
+        Text("Hello, World!").OneBorderBox(edge: .top, color: Color.red, width: 5, cornerRadius: 0)
     }
 }
 ```
@@ -95,7 +95,7 @@ struct ContentView: View {
 
 ## 📜 License
 
-CMOneBorderBox is available under the MIT license. See the `LICENSE` file for more info.
+OneBorderBox is available under the MIT license. See the `LICENSE` file for more info.
 
 ## ✍️ Author
 

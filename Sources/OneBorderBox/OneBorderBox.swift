@@ -1,7 +1,7 @@
 import SwiftUI
 
 /// One Side Bordered Box
-public struct CMOneBorderBox: View {
+public struct OneBorderBox: View {
     var edge: Edge.Set = [.leading]
     var accentColor: Color = Color(.sRGB, red: 50/255, green: 200/255, blue: 165/255)
     var width: CGFloat = 5
@@ -154,33 +154,33 @@ struct RoundSquare: Shape {
 }
 
 public extension View {
-    /// Make background CMOneBorderBox.
-    func CMOneBorderBox() -> some View {
-        self.modifier(CMOneBorderBoxModifier())
+    /// Make background OneBorderBox.
+    func OneBorderBox() -> some View {
+        self.modifier(OneBorderBoxModifier())
     }
-    /// Make background CMOneBorderBox with custom color
-    func CMOneBorderBox(color: Color) -> some View {
-        self.modifier(CMOneBorderBoxModifier(color: color))
+    /// Make background OneBorderBox with custom color
+    func OneBorderBox(color: Color) -> some View {
+        self.modifier(OneBorderBoxModifier(color: color))
     }
-    /// Make background CMOneBorderBox with custom edge set and color
-    func CMOneBorderBox(edge: Edge.Set, color: Color) -> some View {
-        self.modifier(CMOneBorderBoxModifier(edge: edge, color: color))
+    /// Make background OneBorderBox with custom edge set and color
+    func OneBorderBox(edge: Edge.Set, color: Color) -> some View {
+        self.modifier(OneBorderBoxModifier(edge: edge, color: color))
     }
-    /// Make background CMOneBorderBox with custom edge set and color, width
-    func CMOneBorderBox(edge: Edge.Set, color: Color, width: CGFloat) -> some View {
-        self.modifier(CMOneBorderBoxModifier(edge: edge, color: color, width: width))
+    /// Make background OneBorderBox with custom edge set and color, width
+    func OneBorderBox(edge: Edge.Set, color: Color, width: CGFloat) -> some View {
+        self.modifier(OneBorderBoxModifier(edge: edge, color: color, width: width))
     }
-    /// Make background CMOneBorderBox with custom edge set and color, width, cornerRadius
-    func CMOneBorderBox(edge: Edge.Set, color: Color, width: CGFloat, cornerRadius: CGFloat) -> some View {
-        self.modifier(CMOneBorderBoxModifier(edge: edge, color: color, width: width, cornerRadius: cornerRadius))
+    /// Make background OneBorderBox with custom edge set and color, width, cornerRadius
+    func OneBorderBox(edge: Edge.Set, color: Color, width: CGFloat, cornerRadius: CGFloat) -> some View {
+        self.modifier(OneBorderBoxModifier(edge: edge, color: color, width: width, cornerRadius: cornerRadius))
     }
-    /// Make background CMOneBorderBox with custom edge set and color, width, cornerRadius
-    func CMOneBorderBox(edge: Edge.Set, color: Color, width: CGFloat, cornerRadius: CGFloat, topRight: CGFloat, topLeft: CGFloat, bottomRight: CGFloat, bottomLeft: CGFloat) -> some View {
-        self.modifier(CMOneBorderBoxModifier(edge: edge, width: width, color: color, topLeft: topLeft, topRight: topRight, bottomLeft: bottomLeft, bottomRight: bottomRight))
+    /// Make background OneBorderBox with custom edge set and color, width, cornerRadius
+    func OneBorderBox(edge: Edge.Set, color: Color, width: CGFloat, cornerRadius: CGFloat, topRight: CGFloat, topLeft: CGFloat, bottomRight: CGFloat, bottomLeft: CGFloat) -> some View {
+        self.modifier(OneBorderBoxModifier(edge: edge, width: width, color: color, topLeft: topLeft, topRight: topRight, bottomLeft: bottomLeft, bottomRight: bottomRight))
     }
 }
 
-public struct CMOneBorderBoxModifier: ViewModifier {
+public struct OneBorderBoxModifier: ViewModifier {
     var edge: Edge.Set = [.leading]
     var accentColor: Color = Color(.sRGB, red: 50/255, green: 200/255, blue: 165/255)
     var width: CGFloat = 5
@@ -192,7 +192,7 @@ public struct CMOneBorderBoxModifier: ViewModifier {
     public func body(content: Content) -> some View {
         return content
             .padding()
-            .background(CMOneBorderBox(edge: edge, width: width, color: accentColor, topLeft: topLeft, topRight: topRight, bottomLeft: bottomLeft, bottomRight: bottomRight))
+            .background(OneBorderBox(edge: edge, width: width, color: accentColor, topLeft: topLeft, topRight: topRight, bottomLeft: bottomLeft, bottomRight: bottomRight))
     }
     
     public init() {
